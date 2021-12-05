@@ -1,2 +1,2 @@
 # VRC-Omni-Action
-Description needed:
+Description needed.
