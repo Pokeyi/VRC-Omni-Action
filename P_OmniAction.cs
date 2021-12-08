@@ -14,7 +14,7 @@ namespace Pokeyi.UdonSharp
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)] // Some variables are serialized over network manually.
 
     public class P_OmniAction : UdonSharpBehaviour
-    {   // Multi-purpose user-action/event trigger and function-handling component for VRChat:
+    {   // Multi-purpose user-action/event and function-handling component for VRChat:
         // Functions: Pickup Reset, Binary Toggle, Sequence Toggle, Enable/Disable All, Animator Toggle/True/False, Player/Object Teleport, Stopwatch, Object-Pool Spawn/Reset
         // Actions: Button Interact, Entry/Exit/Occupied/Pickup Trigger, On-Enable/Disable, Timer Repeat, AudioLink, All-Active Scan, Remote Action
         // Options: Local/Global, Repeatable/One-Shot, Controller Haptics, Audio Source, Custom Events, Delay, Randomize
