@@ -15,7 +15,7 @@ Errors regarding functions not being exposed likely mean you need an updated ver
 
 ### Optional
 Components with specific functionality built into the behaviour, should you like to use them.
-- [VRC Haptics Profile](https://github.com/Pokeyi/VRC-Haptics-Profile) (Controller Vibration)
+- [VRC Haptics Profile](https://github.com/Pokeyi/VRC-Haptics-Profile) (Controller Vibration Presets)
 - [Udon AudioLink](https://github.com/llealloo/vrc-udon-audio-link) (Audio Data Input)
 
 ### Recommended
