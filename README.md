@@ -4,7 +4,7 @@ Multi-purpose user-action/event and function-handling component for VRChat.
 ![Omni-Action](P_OmniAction.png)
 
 ## Overview
-Omni-Action is a single configurable UdonSharp behaviour that can be used for a growing multitude of VRChat world interactions and game-logic functions. It is intended to be efficient and relatively simple to use without the need for any additional editor scripts or dependencies outside of UdonSharp. All configuration including networking and event routing can be done within the Unity Inspector window without the need for any programming, Udon, or SDK knowledge. That said, the source code is cleanly-organized and commented in the hopes of also being a good learning tool, and there are very few limitations imposed on the level of complexity you can achieve.
+VRC Omni-Action is a single configurable UdonSharp behaviour that can be used for a growing multitude of VRChat world interactions and game-logic functions. It is intended to be efficient and relatively simple to use without the need for any additional editor scripts or dependencies outside of UdonSharp. All configuration including networking and event routing can be done within the Unity Inspector window without the need for any programming, Udon, or SDK knowledge. That said, the source code is cleanly-organized and commented in the hopes of also being a good learning tool, and there are very few limitations imposed on the level of complexity you can achieve.
 
 ### Requirements
 Errors regarding functions not being exposed likely mean you need an updated version of the SDK or UdonSharp.
