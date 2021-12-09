@@ -80,9 +80,9 @@ Additional modifications of functionality. Multiple can be selected.
 - Min/Max Timer - Randomized range in seconds for Timer Repeat action. For a steady interval, set Max Timer to 0 or both fields to same value.
 - Delay Time - Delay the final step of functions for a set number of seconds. The delay is observed *after* Audio, Haptics, and Events have been fired.
 - AudioLink - Only relevant if you are using [Udon AudioLink](https://github.com/llealloo/vrc-udon-audio-link) data in your project. Threshold adjusts band sensitivity and applied inverse time throttle (<1s).
-Threshold is applied independently from source AudioLink's own threshold settings, no source behaviour variables are changed or directly referenced.
+Threshold is applied on top of source AudioLink's own threshold settings, no source behaviour variables are changed.
 - Entry/Exit - Functionality is split for actions that can behave differently whether they are being entered/exited or enabled/disabled, etc.
-- Haptics Profile - Reference a [VRC Haptics Profile](https://github.com/Pokeyi/VRC-Haptics-Profile) to relay customized controller vibration to the player.
+- Haptics Profile - Reference a [VRC Haptics Profile](https://github.com/Pokeyi/VRC-Haptics-Profile) to relay customized controller vibration to the player with optional falloff relative to its position.
 - Audio Source - Play sound from audio source when the function is activated activated. If 'Is Global' is enabled, all other players within range will hear the sound as well.
 - Events - These options enable you to remotely call public methods / custom events on other behaviours. Global events will trigger for all players and are ignored if 'Is Global' is not enabled. Events are called sequentially for the receiver on the same numbered line in the inspector array. If calling both local and global events on different behaviours, leaving an event name blank will skip it for that receiver. As an example, you can trigger remote actions on other Omni-Action behaviours with the "\_RemoteAction" local event. (See: Known Issues [#4](https://github.com/Pokeyi/VRC-Omni-Action#known-issues))
 
@@ -107,6 +107,7 @@ As stated above, very few limitations are imposed on what configurations can be 
 6. Sometimes the Unity Console will throw a null-reference error when the Size field of the Target Objects array is active and the objects aren't dropped in yet. I believe this is an issue with UdonSharp and/or the VRChat SDK that is being resolved in an upcoming release. You can safely hide these errors in the Unity Console to stop them from happening, they do not effect the behaviour in any way during runtime.
 7. (BUG) Teleport Object function does nothing on occasion due to being included in the sequence and teleporting to itself. Easy fix for the next release.
 8. (TO-DO) Wider functionality for the Randomize option will be added in the next release.
+9. (TO-DO) Will add an exception allowing Global Events to be sent even if 'Is Global' is not enabled.
 
 ## Credit & Support
 Please credit me as Pokeyi if you use my work. I would also love to see your creations that make use of it if you're inclined to share. This and related projects at release have involved over three months of solid work and self-education as I strive for an opportunity to change careers and make a better life for myself. If you find value in my work, please consider supporting me, I appreciate it more than you can imagine!
