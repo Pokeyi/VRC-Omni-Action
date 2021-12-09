@@ -22,6 +22,17 @@ Other useful VRChat world-creation tools that I will always recommend.
 - [CyanEmu](https://github.com/CyanLaser/CyanEmu) (Unity-Window Testing)
 - [Udon Platform Hook](https://github.com/Superbstingray/UdonPlayerPlatformHook) (Moving-Platform Functionality)
 
+### Setup
+Make sure you have already imported the VRChat Worlds SDK and UdonSharp into your project.
+- Download the latest [Unity Package](https://github.com/Pokeyi/VRC-Omni-Action/releases) and import it into your project.
+- A pre-configured example prefab is included that you can drop into your scene if you like.
+- Select the game object that you want to control your action and add the P_OmniAction behaviour via the Unity Inspector window or 'Component > Pokeyi.VRChat > P.VRC Omni-Action' toolbar menu.
+- Click the 'Convert to UdonBehaviour' button if prompted.
+- Adjust the Target Function slider to match the desired function in the header.
+- Click the small triangle next to Target Objects to expand the array.
+- If the Size field is left at 0, you can lock the Inspector tab and drag the game object(s) you want your function to modify into the Target Objects label to add them all to the array at once. You can alternatively enter a Size value and drag them in one at a time. (See: Known Issues [#6](https://github.com/Pokeyi/VRC-Omni-Action#known-issues))
+- Configure the rest of the behaviour's actions and options as you see fit. Each of these is explained in detail further below.
+
 ## Features
 The main features of Omni-Action can be broken down into three categories.
 - Functions - What activity the behaviour will be performing with its target game objects each time it is activated.
@@ -93,8 +104,9 @@ As stated above, very few limitations are imposed on what configurations can be 
 3. 'Is Global' should be enabled if you are manipulating target objects that are themselves network-synced or contain networked components like VRC-Object-Sync or VRC-Object-Pool. Non-local actions (On-Enable/Disable, All-Active Scan, AudioLink, Timer Repeat, Occupied Trigger) will appropriately be filtered to only activate once through the network owner when enabled as well.
 4. Per the VRChat API, public method/event names starting with an "\_Underscore" are protected from remote network calls, necessitating use of a local-only event.
 5. Functionalities involving frame updates and time do not stack and will override each-other by the following priority: All-Active Scan > AudioLink > Timer Repeat > Stopwatch.
-6. (BUG) Teleport Object function does nothing on occasion due to being included in the sequence and teleporting to itself. Easy fix for the next release.
-7. (TO-DO) Wider functionality for the Randomize option will be added in the next release.
+6. Sometimes the Unity Console will throw a null-reference error when the Size field of the Target Objects array is active and the objects aren't dropped in yet. I believe this is an issue with UdonSharp and/or the VRChat SDK that is being resolved in an upcoming release. You can safely hide these errors in the Unity Console to stop them from happening, they do not effect the behaviour in any way during runtime.
+7. (BUG) Teleport Object function does nothing on occasion due to being included in the sequence and teleporting to itself. Easy fix for the next release.
+8. (TO-DO) Wider functionality for the Randomize option will be added in the next release.
 
 ## Credit & Support
 Please credit me as Pokeyi if you use my work. I would also love to see your creations that make use of it if you're inclined to share. This and related projects at release have involved over three months of solid work and self-education as I strive for an opportunity to change careers and make a better life for myself. If you find value in my work, please consider supporting me, I appreciate it more than you can imagine!
