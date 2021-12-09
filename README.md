@@ -41,7 +41,7 @@ The main features of Omni-Action can be broken down into three categories.
 - Actions - *How* the function is activated, be it via direct player interaction or other defined circumstances.
 - Options - Additional modifiers to further customize or add functionality.
 
-All of the following settings have hover-tooltips in the Unity Inspector window.
+All of the following properties have hover-tooltips in the Unity Inspector window.
 
 ### Functions
 The primary function of the behaviour. Only one can be selected.
