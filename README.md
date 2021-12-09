@@ -93,13 +93,20 @@ A few of the simpler configurations that are possible.
 - Animator Toggle + Occupied Trigger + 'Is Global' = Proximity Door
 - Teleport Player + Entry Trigger = Portal
 - Stopwatch + Entry Trigger + Exit Trigger = Time Trial Zone
-- Teleport Object + Interact Button + 'Is Global' = Hidden-Item Relocator
-- Object-Pool Spawn + Timer Repeat + 'Is Global' = Obstacle Dropper
+- Teleport Object + Timer Repeat + 'Is Global' = Hidden-Item Relocator
+- Object-Pool Spawn + Timer Repeat (Random Range) + 'Is Global' = Unpredictable Obstacle Dropper
 - Pickup Reset + Interact Button = Yea, these are pretty self-explanatory.
+
+Something more complex:
+1. Binary Toggle + Occupied Trigger + Override Name Contains "Key #1" + 'Is Global' = Lock #1
+2. Binary Toggle + Occupied Trigger + Override Name Contains "Key #2" + 'Is Global' = Lock #2
+3. Disable All + All-Active Scan + 'Is Global' + One-Shot = Two Keys, One Door - Simultaneously disable door and above keys & locks. Tidy.
+
+And, of course, you can easily add sound effects, controller haptic feedback, and additional animations/effects via events for each component above.
 
 ### Known Issues
 As stated above, very few limitations are imposed on what configurations can be made, but some combinations won't play well together.
-1. Spotty functionality and player-syncing if component is on an object that is subject to having its own active status disabled, for obvious reasons. Maybe just don't do that.
+1. Spotty functionality and player-syncing if component is on an object that is subject to having its own active status disabled, for obvious reasons. Maybe just don't do that. Alternatively, you could use the Teleport Object function to similar effect by temporarily hiding these objects somewhere else instead of disabling them.
 2. All-Active Scan action performs its function on the same target objects it is reacting to, so you should probably choose Events Only for most cases.
 3. 'Is Global' should be enabled if you are manipulating target objects that are themselves network-synced or contain networked components like VRC-Object-Sync or VRC-Object-Pool. Non-local actions (On-Enable/Disable, All-Active Scan, AudioLink, Timer Repeat, Occupied Trigger) will appropriately be filtered to only activate once through the network owner when enabled as well.
 4. Per the VRChat API, public method/event names starting with an "\_Underscore" are protected from remote network calls, necessitating use of a local-only event. Doing this protects them from being called by malicious clients and potentially breaking functionality in your world.
