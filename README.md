@@ -39,7 +39,7 @@ Make sure you have already imported the VRChat Worlds SDK and UdonSharp into you
 The main features of Omni-Action can be broken down into three categories.
 - Functions - What activity the behaviour will be performing with its target game objects each time it is activated.
 - Actions - *How* the function is activated, be it via direct player interaction or other defined circumstances.
-- Options - Additional settings to further customize or add functionality.
+- Options - Additional modifiers to further customize or add functionality.
 
 All of the following settings have hover-tooltips in the Unity Inspector window.
 
