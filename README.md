@@ -51,27 +51,27 @@ The means of activation for the target object function. Multiple can be selected
 - Button Interact - Activate when player clicks the button.
 - Entry/Exit Trigger - Activate when player or specified pickup object enters/exits trigger.
 - Occupied Trigger - Activate when *any* player or specified pickup object enters trigger, deactivate when empty.
-- On-Enable/Disable - Activate when object's active status is changed. (See: Known Issues #1)
+- On-Enable/Disable - Activate when object's active status is changed. (See: Known Issues [#1](https://github.com/Pokeyi/VRC-Omni-Action#known-issues))
 - Timer Repeat - Activate on a repeated timer, either random range or set interval.
 - AudioLink - Activate when Udon AudioLink data meets conditions on specified audio band.
-- All-Active Scan - Activate if all target objects found active, deactivate if it becomes untrue. (See: Known Issues #2)
+- All-Active Scan - Activate if all target objects found active, deactivate if it becomes untrue. (See: Known Issues [#2](https://github.com/Pokeyi/VRC-Omni-Action#known-issues))
 - Remote Action - Activate remotely from another behaviour.
 
 ### Options
 Additional modifications of functionality. Multiple can be selected.
-- Is Global - Behaviour won't explicitly sync objects or serialize variables over the network for other players unless this is enabled. (See: Known Issues #3)
+- Is Global - Behaviour won't explicitly sync objects or serialize variables over the network for other players unless this is enabled. (See: Known Issues [#3](https://github.com/Pokeyi/VRC-Omni-Action#known-issues))
 - One-Shot - When enabled, the function can only be activated one time. An optional "\_ReEnable" event can be called to reset this.
 - Randomize Functions - Add randomization or shuffling to certain functions: Sequence Toggle, Player/Object Teleport, Object-Pool Spawn/Reset.
 - Animator Bool - Name of effected boolean variable for relevant animator functions.
 - Override Name Contains - Triggers are activated by game objects containing this name *instead* of by players, unless this field is left empty.
 - Min/Max Timer - Randomized range in seconds for Timer Repeat action. For a steady interval, set Max Timer to 0 or both fields to same value.
 - Delay Time - Delay the final step of functions for a set number of seconds. The delay is observed *after* Audio, Haptics, and Events have been fired.
-- AudioLink - Only relevant if you are using Udon AudioLink data in your project. Threshold adjusts band sensitivity and applied inverse time throttle (<1s).
+- AudioLink - Only relevant if you are using [Udon AudioLink](https://github.com/llealloo/vrc-udon-audio-link) data in your project. Threshold adjusts band sensitivity and applied inverse time throttle (<1s).
 Threshold is applied independently from source AudioLink's own threshold settings, no source behaviour variables are changed or directly referenced.
 - Entry/Exit - Functionality is split for actions that can behave differently whether they are being entered/exited or enabled/disabled, etc.
 - Haptics Profile - Reference a [VRC Haptics Profile](https://github.com/Pokeyi/VRC-Haptics-Profile) to relay customized controller vibration to the player.
 - Audio Source - Play sound from audio source when the function is activated activated. If 'Is Global' is enabled, all other players within range will hear the sound as well.
-- Events - These options enable you to remotely call public methods / custom events on other behaviours. Global events will trigger for all players and are ignored if 'Is Global' is not enabled. Events are called sequentially for the receiver on the same numbered line in the inspector array. If calling both local and global events on different behaviours, leaving an event name blank will skip it for that receiver. As an example, you can trigger remote actions on other Omni-Action behaviours with the "\_RemoteAction" local event. (See: Known Issues #4)
+- Events - These options enable you to remotely call public methods / custom events on other behaviours. Global events will trigger for all players and are ignored if 'Is Global' is not enabled. Events are called sequentially for the receiver on the same numbered line in the inspector array. If calling both local and global events on different behaviours, leaving an event name blank will skip it for that receiver. As an example, you can trigger remote actions on other Omni-Action behaviours with the "\_RemoteAction" local event. (See: Known Issues [#4](https://github.com/Pokeyi/VRC-Omni-Action#known-issues))
 
 ### Use Case Examples
 A few of the simpler configurations that are possible.
