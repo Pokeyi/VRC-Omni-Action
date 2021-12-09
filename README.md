@@ -92,7 +92,7 @@ A few of the simpler configurations that are possible.
 - Sequence Toggle + Interact Button = Low / High / Transparent Mirror Switcher
 - Animator Toggle + Occupied Trigger + 'Is Global' = Proximity Door
 - Teleport Player + Entry Trigger = Portal
-- Entry Trigger + Exit Trigger + Stopwatch = Time Trial Zone
+- Stopwatch + Entry Trigger + Exit Trigger = Time Trial Zone
 - Teleport Object + Interact Button + 'Is Global' = Hidden-Item Relocator
 - Object-Pool Spawn + Timer Repeat + 'Is Global' = Obstacle Dropper
 - Pickup Reset + Interact Button = Yea, these are pretty self-explanatory.
