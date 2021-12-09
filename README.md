@@ -61,7 +61,7 @@ The means of activation for the target object function. Multiple can be selected
 
 ### Options
 Additional modifications of functionality. Multiple can be selected.
-- Is Global - Behaviour won't explicitly sync objects or serialize variables over the network for other players unless this is enabled. (See: Known Issues [#3](https://github.com/Pokeyi/VRC-Omni-Action#known-issues))
+- Is Global - Behaviour won't explicitly sync objects or serialize variables over the network for other players and late joiners unless this is enabled. (See: Known Issues [#3](https://github.com/Pokeyi/VRC-Omni-Action#known-issues))
 - One-Shot - When enabled, the function can only be activated one time. An optional "\_ReEnable" event can be called to reset this.
 - Randomize Functions - Add randomization or shuffling to certain functions: Sequence Toggle, Player/Object Teleport, Object-Pool Spawn/Reset.
 - Animator Bool - Name of effected boolean variable for relevant animator functions.
