@@ -112,9 +112,6 @@ As stated above, very few limitations are imposed on what configurations can be 
 4. Per the VRChat API, public method/event names starting with an "\_Underscore" are protected from remote network calls, necessitating use of a local-only event. Doing this protects them from being called by malicious clients and potentially breaking functionality in your world.
 5. Functionalities involving frame updates and time do not stack and will override each-other by the following priority: All-Active Scan > AudioLink > Timer Repeat > Stopwatch.
 6. Sometimes the Unity Console will throw a null-reference error when the Size field of the Target Objects array is active and the objects aren't dropped in yet. I believe this is an issue with UdonSharp and/or the VRChat SDK that is being resolved in an upcoming release. You can safely hide these errors in the Unity Console to stop them from happening, they do not effect the behaviour in any way during runtime.
-7. (BUG) Teleport Object function does nothing on occasion due to being included in the sequence and teleporting to itself. Easy fix for the next release.
-8. (TO-DO) Wider functionality for the Randomize Functions option will be added in the next release.
-9. (TO-DO) Will add an exception allowing Global Events to be sent even when 'Is Global' is not enabled.
 
 ## Credit & Support
 Please credit me as Pokeyi if you use my work. I would also love to see your creations that make use of it if you're inclined to share. This and [related projects](https://github.com/Pokeyi/VRC-Omni-Action) at release have involved over three months of solid work and self-education as I strive for an opportunity to change careers and make a better life for myself. If you find value in my work, please consider supporting me, I appreciate it more than you can imagine!
