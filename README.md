@@ -4,7 +4,7 @@ Multi-purpose user-action/event and function-handling component for VRChat.
 ![Omni-Action](P_OmniAction.png)
 
 ## Overview
-Omni-Action is a single configurable UdonSharp behaviour that can be used for a growing multitude of VRChat world interactions and game-logic functions. It is intended to be efficient and relatively simple to use without the need for any additional editor scripts or dependencies outside of UdonSharp. All configuration including networking and event routing can be done within the Inspector tab without the need for any programming knowledge. That said, the source code is cleanly-organized and commented in the hopes of also being a good learning tool, and there are few limitations imposed on the level of complexity you can achieve.
+Omni-Action is a single configurable UdonSharp behaviour that can be used for a growing multitude of VRChat world interactions and game-logic functions. It is intended to be efficient and relatively simple to use without the need for any additional editor scripts or dependencies outside of UdonSharp. All configuration including networking and event routing can be done within the Unity Inspector tab without the need for any programming knowledge. That said, the source code is cleanly-organized and commented in the hopes of also being a good learning tool, and there are few limitations imposed on the level of complexity you can achieve.
 
 ### Requirements
 Errors regarding functions not being exposed likely mean you need an updated version of the SDK or UdonSharp.
@@ -12,7 +12,7 @@ Errors regarding functions not being exposed likely mean you need an updated ver
 - [UdonSharp](https://github.com/MerlinVR/UdonSharp) (Tested: v0.20.3)
 
 ### Optional
-Components with specific functionality built into the behavior should you like to use them.
+Components with specific functionality built into the behaviour, should you like to use them.
 - [VRC Haptics Profile](https://github.com/Pokeyi/VRC-Haptics-Profile) (Controller Vibration)
 - [Udon AudioLink](https://github.com/llealloo/vrc-udon-audio-link) (Audio Data Input)
 
@@ -23,7 +23,7 @@ Other useful VRChat world-creation tools that I will always recommend.
 - [Udon Platform Hook](https://github.com/Superbstingray/UdonPlayerPlatformHook) (Moving-Platform Functionality)
 
 ## Features
-The main features of Omni-Action can be broken down into three categories.
+The main features of Omni-Action can be broken down into three categories. All Unity Inspector variables have hover-tooltips.
 - Functions - What activity the behaviour will be performing with its target game objects each time it is activated.
 - Actions - *How* the function is activated, be it via direct player interaction or other defined circumstances.
 - Options - Additional settings to further customize or add functionality.
