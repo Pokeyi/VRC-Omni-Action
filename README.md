@@ -4,7 +4,7 @@ Multi-purpose user-action/event and function-handling component for VRChat.
 ![Omni-Action](P_OmniAction.png)
 
 ## Overview
-Omni-Action is a single configurable UdonSharp behaviour that can be used for a growing multitude of VRChat world interactions and game-logic functions. It is intended to be efficient and relatively simple to use without the need for any additional editor scripts or dependencies outside of UdonSharp. All configuration including networking and event routing can be done within the Unity Inspector window without the need for any programming knowledge. That said, the source code is cleanly-organized and commented in the hopes of also being a good learning tool, and there are few limitations imposed on the level of complexity you can achieve.
+Omni-Action is a single configurable UdonSharp behaviour that can be used for a growing multitude of VRChat world interactions and game-logic functions. It is intended to be efficient and relatively simple to use without the need for any additional editor scripts or dependencies outside of UdonSharp. All configuration including networking and event routing can be done within the Unity Inspector window without the need for any programming, Udon, or SDK knowledge. That said, the source code is cleanly-organized and commented in the hopes of also being a good learning tool, and there are very few limitations imposed on the level of complexity you can achieve.
 
 ### Requirements
 Errors regarding functions not being exposed likely mean you need an updated version of the SDK or UdonSharp.
@@ -23,10 +23,12 @@ Other useful VRChat world-creation tools that I will always recommend.
 - [Udon Platform Hook](https://github.com/Superbstingray/UdonPlayerPlatformHook) (Moving-Platform Functionality)
 
 ## Features
-The main features of Omni-Action can be broken down into three categories. All Unity Inspector variables have hover-tooltips.
+The main features of Omni-Action can be broken down into three categories.
 - Functions - What activity the behaviour will be performing with its target game objects each time it is activated.
 - Actions - *How* the function is activated, be it via direct player interaction or other defined circumstances.
 - Options - Additional settings to further customize or add functionality.
+
+All of the following settings have hover-tooltips in the Unity Inspector window.
 
 ### Functions
 The primary function of the behaviour. Only one can be selected.
@@ -85,7 +87,7 @@ A few of the simpler configurations that are possible.
 - Pickup Reset + Interact Button = Yea, these are pretty self-explanatory.
 
 ### Known Issues
-As stated above, few limitations are imposed on what configurations can be made, but some combinations won't play well together.
+As stated above, very few limitations are imposed on what configurations can be made, but some combinations won't play well together.
 1. Spotty functionality and player-syncing if component is on an object that is subject to having its own active status disabled, for obvious reasons. Maybe just don't do that.
 2. All-Active Scan action performs its function on the same target objects it is reacting to, so you should probably choose Events Only for most cases.
 3. 'Is Global' should be enabled if you are manipulating target objects that are themselves network-synced or contain networked components like VRC-Object-Sync or VRC-Object-Pool. Non-local actions (On-Enable/Disable, All-Active Scan, AudioLink, Timer Repeat, Occupied Trigger) will appropriately be filtered to only activate once through the network owner when enabled as well.
