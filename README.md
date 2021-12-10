@@ -32,7 +32,7 @@ Make sure you have already imported the VRChat Worlds SDK and UdonSharp into you
 - Click the 'Convert to UdonBehaviour' button if prompted.
 - Adjust the Target Function slider to match the desired function in the header.
 - Click the small triangle next to Target Objects to expand the array.
-- If the Size field is left at 0, you can lock the Inspector tab and drag the game object(s) you want your function to modify into the Target Objects label to add them all to the array at once. You can alternatively enter a Size value and drag them in one at a time. (See: Known Issues [#6](https://github.com/Pokeyi/VRC-Omni-Action#known-issues))
+- If the Size field is left at 0, you can lock the Inspector tab and drag the game object(s) you want your function to modify into the Target Objects label to add them all to the array at once. You can alternatively enter a Size value and drag them in one at a time. (See: Known Issues [#6](#known-issues))
 - Configure the rest of the behaviour's actions and options as you see fit. Each of these is explained in detail further below.
 
 ## Features
@@ -48,7 +48,7 @@ All of the following properties have hover-tooltips in the Unity Inspector windo
 The array of game objects you've selected to be modified by this behaviour's functions. Multiple can be added.
 - There is no limit imposed on the number of target game objects you can add.
 - Note that some functions behave differently depending on the number of target game objects detected.
-- See [Setup](https://github.com/Pokeyi/VRC-Omni-Action#setup) above for tips on placing game objects into the array via the Unity Inspector window.
+- See [Setup](#setup) above for tips on placing game objects into the array via the Unity Inspector window.
 
 ### Functions
 The primary function of the behaviour. Only one can be selected.
@@ -73,15 +73,15 @@ The means of activation for the target object function. Multiple can be selected
 - Button Interact - Activate when player clicks the button.
 - Entry/Exit Trigger - Activate when player or specified pickup object enters/exits trigger.
 - Occupied Trigger - Activate when *any* player or specified pickup object enters trigger, deactivate when empty.
-- On-Enable/Disable - Activate when object's active status is changed. (See: Known Issues [#1](https://github.com/Pokeyi/VRC-Omni-Action#known-issues))
+- On-Enable/Disable - Activate when object's active status is changed. (See: Known Issues [#1](#known-issues))
 - Timer Repeat - Activate on a repeated timer, either random range or set interval.
 - AudioLink - Activate when Udon AudioLink data meets conditions on specified audio band.
-- All-Active Scan - Activate if all target objects found active, deactivate if it becomes untrue. (See: Known Issues [#2](https://github.com/Pokeyi/VRC-Omni-Action#known-issues))
+- All-Active Scan - Activate if all target objects found active, deactivate if it becomes untrue. (See: Known Issues [#2](#known-issues))
 - Remote Action - Activate remotely from another behaviour.
 
 ### Options
 Additional modifications of functionality. Multiple can be selected.
-- Is Global - Behaviour won't explicitly sync objects or serialize variables over the network for other players and late joiners unless this is enabled. (See: Known Issues [#3](https://github.com/Pokeyi/VRC-Omni-Action#known-issues))
+- Is Global - Behaviour won't explicitly sync objects or serialize variables over the network for other players and late joiners unless this is enabled. (See: Known Issues [#3](#known-issues))
 - One-Shot - When enabled, the function can only be activated one time. An optional "\_ReEnable" event can be called to reset this.
 - Randomize Functions - Add randomization or shuffling to certain functions: Sequence Toggle, Player/Object Teleport, Object-Pool Spawn/Reset.
 - Animator Bool - Name of effected boolean variable for relevant animator functions.
@@ -93,7 +93,7 @@ Threshold is applied on top of source AudioLink's own threshold settings, no sou
 - Entry/Exit - Functionality is split for actions that can behave differently whether they are being entered/exited or enabled/disabled, etc.
 - Haptics Profile - Reference a [VRC Haptics Profile](https://github.com/Pokeyi/VRC-Haptics-Profile) to relay customized controller vibration to the player with optional falloff relative to its position.
 - Audio Source - Play sound from audio source when the function is activated activated. If 'Is Global' is enabled, all other players within range will hear the sound as well.
-- Events - These options enable you to remotely call public methods / custom events on other behaviours. Global events will trigger for all players and are ignored if 'Is Global' is not enabled. Events are called sequentially for the receiver on the same numbered line in the inspector array. If calling both local and global events on different behaviours, leaving an event name blank will skip it for that receiver. As an example, you can trigger remote actions on other Omni-Action behaviours with the "\_RemoteAction" local event. (See: Known Issues [#4](https://github.com/Pokeyi/VRC-Omni-Action#known-issues))
+- Events - These options enable you to remotely call public methods / custom events on other behaviours. Global events will trigger for all players and are ignored if 'Is Global' is not enabled. Events are called sequentially for the receiver on the same numbered line in the inspector array. If calling both local and global events on different behaviours, leaving an event name blank will skip it for that receiver. As an example, you can trigger remote actions on other Omni-Action behaviours with the "\_RemoteAction" local event. (See: Known Issues [#4](#known-issues))
 
 ### Use Case Examples
 A few of the simpler configurations that are possible.
