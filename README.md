@@ -36,12 +36,19 @@ Make sure you have already imported the VRChat Worlds SDK and UdonSharp into you
 - Configure the rest of the behaviour's actions and options as you see fit. Each of these is explained in detail further below.
 
 ## Features
-The main features of Omni-Action can be broken down into three categories.
+The main features of Omni-Action can be broken down into the following categories.
+- Target Objects - The array of game objects you've selected to be modified by this behaviour's functions.
 - Functions - What activity the behaviour will be performing with its target game objects each time it is activated.
 - Actions - *How* the function is activated, be it via direct player interaction or other defined circumstances.
 - Options - Additional modifiers to further customize or add functionality.
 
 All of the following properties have hover-tooltips in the Unity Inspector window.
+
+### Target Objects
+The array of game objects you've selected to be modified by this behaviour's functions. Multiple can be added.
+- There is no limit imposed on the number of target game objects you can add.
+- Note that some functions behave differently depending on the number of target game objects detected.
+- See [Setup](https://github.com/Pokeyi/VRC-Omni-Action#setup) above for tips on placing game objects into the array via the Unity Inspector window.
 
 ### Functions
 The primary function of the behaviour. Only one can be selected.
