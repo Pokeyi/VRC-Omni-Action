@@ -119,7 +119,7 @@ As stated above, very few limitations are imposed on what configurations can be 
 2. All-Active Scan action performs its function on the same target objects it is reacting to, so you may want to choose Events Only for most cases, but situations like the one detailed above in Use Case Examples do exist.
 3. 'Is Global' should be enabled if you are manipulating target objects that are themselves network-synced or contain networked components like VRC-Object-Sync or VRC-Object-Pool. Non-local actions (On-Enable/Disable, All-Active Scan, AudioLink, Timer Repeat, Occupied Trigger) will appropriately be filtered to only activate once through the network owner when enabled as well.
 4. Per the VRChat API, public method/event names starting with an "\_Underscore" are protected from remote network calls, necessitating use of a local-only event. Doing this protects them from being called by malicious clients and potentially breaking functionality in your world.
-5. Functionalities involving frame updates and time do not stack and will override each-other by the following priority: All-Active Scan > AudioLink > Timer Repeat > Stopwatch.
+5. Functionalities involving frame updates and time do not stack and will override each-other with the following priority: All-Active Scan > AudioLink > Timer Repeat > Stopwatch.
 6. Sometimes the Unity Console will throw a null-reference error when the Size field of an array is active and the objects aren't dropped in yet. I believe this is an issue with UdonSharp and/or the VRChat SDK that is being resolved in an upcoming release. You can safely hide these errors in the Unity Console to stop them from happening, they do not effect the behaviour in any way during runtime.
 
 ## Credit & Support
