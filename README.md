@@ -108,9 +108,9 @@ A few of the simpler configurations that are possible.
 Something more complex:
 1. Binary Toggle + Occupied Trigger + Override Name Contains "Key #1" + 'Is Global' = Lock #1
 2. Binary Toggle + Occupied Trigger + Override Name Contains "Key #2" + 'Is Global' = Lock #2
-3. Disable All + All-Active Scan + 'Is Global' + One-Shot = Two Keys, One Door - Simultaneously disable door and above keys & locks. Tidy.
+3. Disable All + All-Active Scan + 'Is Global' + One-Shot = Two Keys, One Door - Simultaneously disable door and above keys & locks.
 
-And, of course, you can easily add sound effects, controller haptic feedback, and additional animations/effects via events for each component above.
+You can then easily add sound effects, controller haptic feedback, and additional animations/effects via events for each component above.
 
 ### Notes
 As stated above, very few limitations are imposed on what configurations can be made, but some combinations won't play well together.
