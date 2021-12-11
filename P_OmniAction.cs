@@ -404,6 +404,7 @@ namespace Pokeyi.UdonSharp
                     syncedActiveIndex += 1;
                     if (randomizeFunctions) syncedActiveIndex = Random.Range(0, targetObjects.Length);
                     if (syncedActiveIndex >= targetObjects.Length) syncedActiveIndex = 0;
+                    if ((targetFunction == TELEPORT_OBJECT) && (syncedActiveIndex == 0)) syncedActiveIndex = 1;
                     break;
 
                 case ENABLE_ALL: case ANIM_TRUE: // Enable all active values:
@@ -513,7 +514,7 @@ namespace Pokeyi.UdonSharp
                 for (int i = 0; i < eventReceivers.Length; i++) if (eventReceivers[i] != null)
                 {
                     if (localEvents[i] != "") eventReceivers[i].SendCustomEvent(localEvents[i]);
-                    if ((isGlobal) && (globalEvents[i] != "")) eventReceivers[i].SendCustomNetworkEvent(NetworkEventTarget.All, globalEvents[i]);
+                    if (globalEvents[i] != "") eventReceivers[i].SendCustomNetworkEvent(NetworkEventTarget.All, globalEvents[i]);
                 }
             }
             else
@@ -522,7 +523,7 @@ namespace Pokeyi.UdonSharp
                 for (int i = 0; i < exitEventReceivers.Length; i++) if (exitEventReceivers[i] != null)
                 {
                     if (exitLocalEvents[i] != "") exitEventReceivers[i].SendCustomEvent(exitLocalEvents[i]);
-                    if ((isGlobal) && (exitGlobalEvents[i] != "")) exitEventReceivers[i].SendCustomNetworkEvent(NetworkEventTarget.All, exitGlobalEvents[i]);
+                    if (exitGlobalEvents[i] != "") exitEventReceivers[i].SendCustomNetworkEvent(NetworkEventTarget.All, exitGlobalEvents[i]);
                 }
             }
         }
