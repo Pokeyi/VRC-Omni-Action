@@ -11,6 +11,7 @@ It is intended to be efficient and relatively simple to use without the need for
 
 ### Requirements
 Errors regarding functions not being exposed likely mean you need an updated version of the SDK or UdonSharp.
+- [Unity](https://docs.vrchat.com/docs/current-unity-version) (Tested: v2019.4.31f1)
 - [VRChat Worlds SDK3](https://vrchat.com/home/download) (Tested: v2021.11.8)
 - [UdonSharp](https://github.com/MerlinVR/UdonSharp) (Tested: v0.20.3)
 
