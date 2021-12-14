@@ -101,7 +101,7 @@ namespace Pokeyi.UdonSharp
         [Header("Default / On / Entry Trigger:")]
         [Space]
         [Tooltip("(Default/Entry) Controller haptics profile to trigger locally via relay script.")]
-        [SerializeField] private P_HapticsProfile hapticsProfile;
+        [SerializeField] private UdonSharpBehaviour hapticsProfile;
         [Tooltip("(Default/Entry) Audio source to play locally or globally dependent on 'isGlobal'.")]
         [SerializeField] private AudioSource audioSource;
         [Tooltip("(Default/Entry) Event receivers to send custom events to.")]
@@ -114,7 +114,7 @@ namespace Pokeyi.UdonSharp
         [Header("Off / Exit Trigger:")]
         [Space]
         [Tooltip("(Exit) Controller haptics profile to trigger locally via relay script.")]
-        [SerializeField] private P_HapticsProfile exitHapticsProfile;
+        [SerializeField] private UdonSharpBehaviour exitHapticsProfile;
         [Tooltip("(Exit) Audio source to play locally or globally dependent on 'isGlobal'.")]
         [SerializeField] private AudioSource exitAudioSource;
         [Tooltip("(Exit) Event receivers to send custom events to.")]
@@ -530,8 +530,8 @@ namespace Pokeyi.UdonSharp
 
         private void RelayHaptics(bool isEntry)
         {   // Relay haptics to assigned haptics profile:
-            if ((isEntry) && (hapticsProfile != null)) hapticsProfile._TriggerHaptics();
-            else if ((!isEntry) && (exitHapticsProfile != null)) exitHapticsProfile._TriggerHaptics();
+            if ((isEntry) && (hapticsProfile != null)) hapticsProfile.SendCustomEvent("_TriggerHaptics");
+            else if ((!isEntry) && (exitHapticsProfile != null)) exitHapticsProfile.SendCustomEvent("_TriggerHaptics");
         }
 
         private void ResetTimer()
