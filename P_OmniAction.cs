@@ -19,8 +19,9 @@ namespace Pokeyi.UdonSharp
         // Actions: Button Interact, Entry/Exit/Occupied/Pickup Trigger, On-Enable/Disable, Timer Repeat, AudioLink, All-Active Scan, Remote Action
         // Options: Local/Global, Repeatable/One-Shot, Controller Haptics, Audio Source, Custom Events, Delay, Randomize
         // Planned: (1) Wider functionality for Randomize option.
-        [Header(":: VRC Omni-Action by Pokeyi ::")]
 
+        /* Old header replaced with editor script:
+        [Header(":: VRC Omni-Action by Pokeyi ::")]
         [Header("Target Object (T-i) Functions:")]
         [Header("[0] Events Only   [1] Pickup Reset")]
         [Header("[2] Binary Toggle   [3] Sequence Toggle")]
@@ -33,7 +34,9 @@ namespace Pokeyi.UdonSharp
         [Header("[12] Object-Pool Spawn   [13] Object-Pool Reset")]
         [Space]
         [Tooltip("Function selector. Detailed in header above.")]
-        [SerializeField] [Range(0, 13)] private int targetFunction;
+        */
+
+        [HideInInspector] [Range(0, 13)] public int targetFunction;
         [Tooltip("Targeted game objects.")]
         [SerializeField] private GameObject[] targetObjects;
 

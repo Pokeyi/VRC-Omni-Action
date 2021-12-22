@@ -5,9 +5,11 @@ Multi-purpose user-action/event and function-handling component for VRChat.
 ![Omni-Action](P_OmniAction.png)
 
 ## Overview
-VRC Omni-Action is a single configurable UdonSharp behaviour that can be used for a growing multitude of VRChat world interactions and game-logic functions.
+VRC Omni-Action is a configurable UdonSharp behaviour that can be used for a growing multitude of VRChat world interactions and game-logic functions.
 
-It is intended to be efficient and relatively simple to use without the need for any additional editor scripts or dependencies outside of UdonSharp. All configuration, including networking and event routing, can be done within the Unity Inspector window without the need for any programming, Udon, or SDK knowledge. That said, the source code is cleanly-organized and commented in the hopes of also being a good learning tool, and there are very few limitations imposed on the level of complexity you can achieve.
+It is intended to be efficient and relatively simple to use without any additional dependencies outside of UdonSharp. All configuration, including networking and event routing, can be done within the Unity Inspector window without the need for any programming, Udon, or SDK knowledge. That said, the source code is cleanly-organized and commented in the hopes of also being a good learning tool, and there are very few limitations imposed on the level of complexity you can achieve.
+
+Thanks to [Vowgan](https://github.com/Vowgan) for help with the Unity Editor code.
 
 ### Requirements
 Errors regarding functions not being exposed likely mean you need an updated version of the SDK or UdonSharp.
@@ -30,8 +32,8 @@ Make sure you have already imported the VRChat Worlds SDK and UdonSharp into you
 - Download the latest [Unity Package](https://github.com/Pokeyi/VRC-Omni-Action/releases) and import it into your project.
 - A pre-configured example prefab is included that you can drop into your scene if you like.
 - Select the game object that you want to control your action and add the P_OmniAction behaviour via the Unity Inspector window or 'Component > Pokeyi.VRChat > P.VRC Omni-Action' toolbar menu.
-- Click the 'Convert to UdonBehaviour' button if prompted.
-- Adjust the Target Function slider to match the desired function in the header.
+- Click the 'Convert to UdonBehaviour' button if prompted. (See: Notes [#7](#notes))
+- Select the desired Target Function from the drop-down menu.
 - Click the small triangle next to Target Objects to expand the array.
 - If the Size field is left at 0, you can lock the Inspector tab and drag the game object(s) you want your function to modify into the Target Objects label to add them all to the array at once. You can alternatively enter a Size value and drag them in one at a time. (See: Notes [#6](#notes))
 - Configure the rest of the behaviour's actions and options as you see fit. Each of these is explained in detail further below.
@@ -122,6 +124,7 @@ As stated above, very few limitations are imposed on what configurations can be 
 4. Per the VRChat API, public method/event names starting with an "\_Underscore" are protected from remote network calls, necessitating use of a local-only event. Doing this protects them from being called by malicious clients and potentially breaking functionality in your world.
 5. Functionalities involving frame updates and time do not stack and will override each-other with the following priority: All-Active Scan > AudioLink > Timer Repeat > Stopwatch.
 6. Sometimes the Unity Console will throw a null-reference error when the Size field of an array is active and the objects aren't dropped in yet. I believe this is an issue with UdonSharp and/or the VRChat SDK that is being resolved in an upcoming release. You can safely hide these errors in the Unity Console to stop them from happening, they do not effect the behaviour in any way during runtime.
+7. There may be editor errors after Udon behaviour conversion, these can be ignored as well.
 
 ## Credit & Support
 Please credit me as Pokeyi if you use my work. I would also love to see your creations that make use of it if you're inclined to share. This and [related projects](https://github.com/Pokeyi/pokeyi.github.io#my-projects) at release have involved over three months of solid work and self-education as I strive for an opportunity to change careers and make a better life for myself. If you find value in my work, please consider supporting me, I appreciate it more than you can imagine!
