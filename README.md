@@ -43,7 +43,7 @@ The main features of Omni-Action can be broken down into the following categorie
 - Target Objects - The array of game objects you've selected to be modified by this behaviour's functions.
 - Functions - What activity the behaviour will be performing with its target game objects each time it is activated.
 - Actions - *How* the function is activated, be it via direct player interaction or other defined circumstances.
-- Options - Additional modifiers to further customize or add functionality.
+- Options - Additional modifiers to further customize or add functionality as well as custom events.
 
 All of the following properties have hover-tooltips in the Unity Inspector window.
 
@@ -66,7 +66,7 @@ The primary function of the behaviour. Only one can be selected.
 - Animator False - Disable specified boolean variable on target objects' animator components.
 - Teleport Player - Teleport player to the location of the first target object or in sequence if multiple.
 - Teleport Object - Teleport first target object to all other target-object locations in sequence.
-- Stopwatch - Toggle a stopwatch counter that outputs its accrued time to Text component of first target object.
+- Stopwatch - Toggle a stopwatch counter that outputs its accrued time to Text component of first target object in 00:00:00 format.
 If using both entry & exit trigger actions, stopwatch will start on exit and stop on re-entry. Otherwise, it will toggle.
 - Object-Pool Spawn - Attempt to spawn next object from each target object's VRC-Object-Pool.
 - Object-Pool Reset - Reset contents of each target object's VRC-Object-Pool.
@@ -80,6 +80,7 @@ The means of activation for the target object function. Multiple can be selected
 - Timer Repeat - Activate on a repeated timer, either random range or set interval.
 - AudioLink - Activate when Udon AudioLink data meets conditions on specified audio band.
 - All-Active Scan - Activate if all target objects found active, deactivate if it becomes untrue. (See: Notes [#2](#notes))
+- Player Respawn - Activate when player respawns.
 - Remote Action - Activate remotely from another behaviour.
 
 ### Options
@@ -96,7 +97,19 @@ Threshold is applied on top of source AudioLink's own threshold settings, no sou
 - Entry/Exit - Functionality is split for actions that can behave differently whether they are being entered/exited or enabled/disabled, etc.
 - Haptics Profile - Reference a [VRC Haptics Profile](https://github.com/Pokeyi/VRC-Haptics-Profile) to relay customized controller vibration to the player with optional falloff relative to its position.
 - Audio Source - Play sound from audio source when the function is activated. If 'Is Global' is enabled, all other players within range will hear the sound as well.
-- Events - These options enable you to remotely call public methods / custom events on other behaviours. Global events will trigger for all players even if 'Is Global' is not enabled. Events are called sequentially for the receiver on the same numbered line in the inspector array. If calling both local and global events on different behaviours, leaving an event name blank will skip it for that receiver. As an example, you can trigger remote actions on other Omni-Action behaviours with the "\_RemoteAction" local event. (See: Notes [#4](#notes))
+- Events - These options enable you to remotely call public methods / custom events on other behaviours. Global events will trigger for all players even if 'Is Global' is not enabled. Events are called sequentially for the receiver on the same numbered line in the inspector array. The size of all three event array fields must match. If calling both local and global events on different behaviours, leaving an event name blank will skip it for that receiver. As an example, you can trigger remote actions on other Omni-Action behaviours with the "\_RemoteAction" local event. (See: Notes [#4](#notes))
+
+### Public Methods
+Optional public methods/events that you can call on the Omni-Action behaviour for additional functionality.
+- \_ReEnable - Reset active state of behaviour if it was disabled due to being a One-Shot action.
+- \_ReInit - Reset certain sequences (toggle and teleport) to their original index-0 state as well as reset the stopwatch without triggering an action.
+- \_RemoteAction - Trigger the behaviour remotely from another behaviour or UI element.
+
+### Omni-Relay
+An included behaviour with a couple of useful methods to call via event actions. This will be added to over time but you can easily add your own in here to avoid the clutter of multiple scripts.
+- \_TextLocalName - Set text field to local player name.
+- \_TextValue - Set text field to text value string.
+- \_TextLocalCount - Increase integer counter by 1 and set text field to its value.
 
 ### Use Case Examples
 A few of the simpler configurations that are possible.
