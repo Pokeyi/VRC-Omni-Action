@@ -16,7 +16,7 @@ namespace Pokeyi.UdonSharp
     public class P_OmniAction : UdonSharpBehaviour
     {   // Multi-purpose user-action/event and function-handling component for VRChat:
         // Functions: Pickup Reset, Binary Toggle, Sequence Toggle, Enable/Disable All, Animator Toggle/True/False, Player/Object Teleport, Stopwatch, Object-Pool Spawn/Reset
-        // Actions: Button Interact, Entry/Exit/Occupied/Pickup Trigger, On-Enable/Disable, Timer Repeat, AudioLink, All-Active Scan, Remote Action
+        // Actions: Button Interact, Entry/Exit/Occupied/Pickup Trigger, On-Enable/Disable, Timer Repeat, AudioLink, All-Active Scan, Remote Action, Player Respawn
         // Options: Local/Global, Repeatable/One-Shot, Controller Haptics, Audio Source, Custom Events, Delay, Randomize
         // Planned: (1) Wider functionality for Randomize option.
 
@@ -75,6 +75,8 @@ namespace Pokeyi.UdonSharp
         [SerializeField] private bool audioLink;
         [Tooltip("Perform entry events when all target objects are active, otherwise exit.")]
         [SerializeField] private bool allActiveScan;
+        [Tooltip("Perform functions & entry events on player respawn.")]
+        [SerializeField] private bool playerRespawn;
 
         [Header("Options:")]
         [Space]
@@ -228,6 +230,15 @@ namespace Pokeyi.UdonSharp
             }
         }
 
+        public override void OnPlayerRespawn(VRCPlayerApi player)
+        {   // When the local player respawns:
+            if ((playerRespawn) && (player.isLocal))
+            {
+                AddLog(player.displayName + " -> [ Player Respawn ] -> " + gameObject.name);
+                ProcessAction(true);
+            }
+        }
+
         public override void OnDeserialization()
         {   // Call function update method for non-local players and late joiners:
             if ((!isGlobal) || (Networking.IsOwner(gameObject))) return;
@@ -356,8 +367,9 @@ namespace Pokeyi.UdonSharp
                     for (int i = 0; i < targetObjects.Length; i++) if (targetObjects[i] != null) syncedObjectActive[i] = targetObjects[i].activeSelf;
                     break;
 
-                case SEQUENCE_TOGGLE: // Populate bool array for each game object and update objects at active index 0:
-                    syncedObjectActive = new bool[targetObjects.Length];
+                case SEQUENCE_TOGGLE: case TELEPORT_PLAYER: case TELEPORT_OBJECT: // Populate bool array for each game object and update objects at active index 0:
+                    if (targetFunction == SEQUENCE_TOGGLE) syncedObjectActive = new bool[targetObjects.Length];
+                    syncedActiveIndex = 0;
                     break;
 
                 case PICKUP_RESET: // Populate arrays with default positions, rotations, and rigidbodies for each resettable game object:
@@ -384,6 +396,8 @@ namespace Pokeyi.UdonSharp
 
                 case STOPWATCH: // Assign stopwatch text field:
                     if (targetObjects != null) textField = targetObjects[0].GetComponent<Text>();
+                    syncedStopwatchActive = false;
+                    syncedTimeValue = 0F;
                     break;
 
                 case POOL_SPAWN: case POOL_RESET: // Populate array with target objects' object pools:
@@ -430,8 +444,8 @@ namespace Pokeyi.UdonSharp
                     }
                     else
                     {   // Toggle stopwatch if binary trigger:
+                        if (!syncedStopwatchActive) syncedTimeValue = 0F;
                         syncedStopwatchActive = !syncedStopwatchActive;
-                        syncedTimeValue = 0F;
                     }
                     break;
             }
@@ -504,7 +518,11 @@ namespace Pokeyi.UdonSharp
                     break;
 
                 case STOPWATCH: // Update stopwatch text field:
-                    if (textField != null) textField.text = syncedTimeValue.ToString();
+                    if (textField == null) return;
+                    int msec = (int)((syncedTimeValue - (int)syncedTimeValue) * 100);
+                    int sec = (int)(syncedTimeValue % 60);
+                    int min = (int)(syncedTimeValue / 60 % 60);
+                    textField.text = string.Format("{0:00}:{1:00}:{2:00}", min, sec, msec);
                     break;
             }
         }
@@ -514,6 +532,11 @@ namespace Pokeyi.UdonSharp
             if (isEntry)
             {   // Send optional entry events:
                 if (eventReceivers == null) return;
+                if ((eventReceivers.Length != localEvents.Length) || (eventReceivers.Length != globalEvents.Length))
+                {
+                    AddLog("[ Event array Size fields must be the same even if left empty. ]");
+                    return;
+                }
                 for (int i = 0; i < eventReceivers.Length; i++) if (eventReceivers[i] != null)
                 {
                     if (localEvents[i] != "") eventReceivers[i].SendCustomEvent(localEvents[i]);
@@ -523,6 +546,11 @@ namespace Pokeyi.UdonSharp
             else
             {   // Send optional exit events:
                 if (exitEventReceivers == null) return;
+                if ((exitEventReceivers.Length != exitLocalEvents.Length) || (exitEventReceivers.Length != exitGlobalEvents.Length))
+                {
+                    AddLog("[ Event array Size fields must be the same even if left empty. ]");
+                    return;
+                }
                 for (int i = 0; i < exitEventReceivers.Length; i++) if (exitEventReceivers[i] != null)
                 {
                     if (exitLocalEvents[i] != "") exitEventReceivers[i].SendCustomEvent(exitLocalEvents[i]);
@@ -569,6 +597,14 @@ namespace Pokeyi.UdonSharp
             syncedIsEnabled = true;
             if (isGlobal) RequestSerialization();
             AddLog(playerLocal.displayName + " -> [ ReEnable ] -> " + gameObject.name);
+        }
+
+        public void _ReInit() // *Public/Protected*
+        {
+            if ((isGlobal) && (!Networking.IsOwner(gameObject))) Networking.SetOwner(playerLocal, gameObject);
+            InitializeFunctions();
+            if (isGlobal) RequestSerialization();
+            AddLog(playerLocal.displayName + " -> [ ReInitialize ] -> " + gameObject.name);
         }
 
         public void _RemoteAction() // *Public/Protected*
