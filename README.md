@@ -107,9 +107,12 @@ Optional public methods/events that you can call on the Omni-Action behaviour fo
 
 ### Omni-Relay
 An included behaviour with a couple of useful methods to call via event actions. This will be added to over time but you can easily add your own in here to avoid the clutter of multiple scripts.
+- Event Relay - Used to call public methods on other behaviours.
 - \_TextLocalName - Set text field to local player name.
 - \_TextValue - Set text field to text value string.
 - \_TextLocalCount - Increase integer counter by 1 and set text field to its value.
+- \_FogToggle - Toggle the Unity Fog on and off.
+- \_DayCheck - Check the UTC Day of Week against Text Value variable to trigger custom event with optional override.
 
 ### Use Case Examples
 A few of the simpler configurations that are possible.
