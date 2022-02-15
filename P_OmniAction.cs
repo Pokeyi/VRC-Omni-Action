@@ -1,4 +1,4 @@
-﻿// Copyright © 2021 Pokeyi - https://pokeyi.dev - pokeyi@pm.me - This work is licensed under the MIT License.
+﻿// Copyright © 2022 Pokeyi - https://pokeyi.dev - pokeyi@pm.me - This work is licensed under the MIT License.
 
 // using System;
 using UdonSharp;
@@ -617,7 +617,7 @@ namespace Pokeyi.UdonSharp
 
 /* MIT License
 
-Copyright (c) 2021 Pokeyi - https://pokeyi.dev - pokeyi@pm.me
+Copyright (c) 2022 Pokeyi - https://pokeyi.dev - pokeyi@pm.me
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
