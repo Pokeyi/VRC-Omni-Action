@@ -17,6 +17,15 @@ namespace Pokeyi.UdonSharp
     {   // Multi-purpose event receiver for VRChat:
         [Header(":: VRC Omni-Relay by Pokeyi ::")]
 
+        [Header("- Event Relay -")]
+        [Space]
+        [Tooltip("Event receivers to send custom events to.")]
+        [SerializeField] private UdonSharpBehaviour[] eventReceivers;
+        [Tooltip("Events triggered for local player.")]
+        [SerializeField] private string[] localEvents;
+        [Tooltip("Multi-purpose override.")]
+        [SerializeField] private bool overrideBool;
+
         [Header("- Text Control -")]
         [Space]
         [Tooltip("Target text field for text events.")]
@@ -25,6 +34,18 @@ namespace Pokeyi.UdonSharp
         [SerializeField] private string textValue;
 
         private int localCount = 0;
+
+        private void SendCustomEvents()
+        {
+            if (eventReceivers == null) return;
+            if (eventReceivers.Length != localEvents.Length)
+            {
+                Debug.Log("[ Event array Size fields must be the same even if left empty. ]");
+                return;
+            }
+            for (int i = 0; i < eventReceivers.Length; i++)
+                if ((eventReceivers[i] != null) && (localEvents[i] != "")) eventReceivers[i].SendCustomEvent(localEvents[i]);
+        }
 
         public void _TextLocalName() // *Public/Protected*
         {   // Set text field to local player name:
@@ -41,6 +62,18 @@ namespace Pokeyi.UdonSharp
             if (textField == null) return;
             localCount += 1;
             textField.text = localCount.ToString();
+        }
+
+        public void _FogToggle() // *Public/Protected*
+        {
+            if (RenderSettings.fog) RenderSettings.fog = false;
+            else RenderSettings.fog = true;
+        }
+
+        public void _DayCheck() // *Public/Protected*
+        {
+            string weekday = DateTime.UtcNow.DayOfWeek.ToString();
+            if ((weekday == textValue) || (overrideBool)) SendCustomEvents();
         }
     }
 }

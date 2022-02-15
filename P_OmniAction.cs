@@ -379,8 +379,8 @@ namespace Pokeyi.UdonSharp
                     for (int i = 0; i < targetObjects.Length; i++) if (targetObjects[i] != null)
                         {
                             objectRigidBody[i] = targetObjects[i].GetComponent<Rigidbody>();
-                            objectPos[i] = targetObjects[i].transform.position;
-                            objectRot[i] = targetObjects[i].transform.rotation;
+                            objectPos[i] = targetObjects[i].transform.localPosition;
+                            objectRot[i] = targetObjects[i].transform.localRotation;
                         }
                     break;
 
@@ -465,8 +465,8 @@ namespace Pokeyi.UdonSharp
                     for (int i = 0; i < targetObjects.Length; i++) if ((targetObjects[i] != null) && (objectRigidBody[i] != null))
                         {
                             if ((isGlobal) && (!Networking.IsOwner(targetObjects[i]))) Networking.SetOwner(playerLocal, targetObjects[i]);
-                            targetObjects[i].transform.position = objectPos[i];
-                            targetObjects[i].transform.rotation = objectRot[i];
+                            targetObjects[i].transform.localPosition = objectPos[i];
+                            targetObjects[i].transform.localRotation = objectRot[i];
                             objectRigidBody[i].Sleep();
                         }
                     break;
