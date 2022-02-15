@@ -152,7 +152,7 @@ Please credit me as Pokeyi if you use my work. I would also love to see your cre
 ## License
 This work is licensed under the MIT License.
 
-Copyright © 2021 Pokeyi - https://pokeyi.dev - [pokeyi@pm.me](mailto:pokeyi@pm.me)
+Copyright © 2022 Pokeyi - https://pokeyi.dev - [pokeyi@pm.me](mailto:pokeyi@pm.me)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
