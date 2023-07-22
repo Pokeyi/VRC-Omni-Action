@@ -1,0 +1,23 @@
+{
+  "name": "dev.pokeyi.omniaction",
+  "description": "Multi-purpose user-action/event and function-handling component for VRChat.",
+  "version": "1.1.7",
+  "unity": "2019.4",
+  "displayName": "Pokeyi - Omni-Action",
+  "hideInEditor": false,
+  "gitDependencies": {},
+  "vpmDependencies": {},
+  "legacyFolders": {},
+  "legacyFiles": {},
+  "type": "tool",
+  "documentationUrl": "https://github.com/Pokeyi/VRC-Omni-Action",
+  "changelogUrl": "https://github.com/Pokeyi/VRC-Omni-Action/releases",
+  "licensesUrl": "https://github.com/Pokeyi/VRC-Omni-Action/blob/main/LICENSE",
+  "license": "MIT",
+  "keywords": ["Udon", "World", "Script"],
+  "repo" : "https://pokeyi.github.io/vpm-packages/index.json",
+  "author": {
+    "name": "Pokeyi",
+    "url": "https://pokeyi.dev"
+  }
+}

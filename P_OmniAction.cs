@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using VRC.SDKBase;
 using VRC.SDK3.Components;
 using VRC.Udon.Common.Interfaces;
+using VRC.Udon.Common;
 
 namespace Pokeyi.UdonSharp
 {
@@ -237,6 +238,12 @@ namespace Pokeyi.UdonSharp
                 AddLog(player.displayName + " -> [ Player Respawn ] -> " + gameObject.name);
                 ProcessAction(true);
             }
+        }
+
+        public override void OnPostSerialization(SerializationResult result)
+        {
+            if (result.success) UpdateFunctions();
+            else RequestSerialization();
         }
 
         public override void OnDeserialization()
