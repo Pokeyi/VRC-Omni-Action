@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.VPM_LISTING }}
+          github-token: ${{ secrets.VPM_PACKAGES_TOKEN }}
           script: |
             await github.rest.actions.createWorkflowDispatch({
               owner: 'Pokeyi',
