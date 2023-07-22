@@ -15,6 +15,7 @@
   "licensesUrl": "https://github.com/Pokeyi/VRC-Omni-Action/blob/main/LICENSE",
   "license": "MIT",
   "keywords": ["Udon", "World", "Script"],
+  "url" : "https://pokeyi.dev/vpm-packages/index.json",
   "repo" : "https://pokeyi.dev/vpm-packages/index.json",
   "author": {
     "name": "Pokeyi",
