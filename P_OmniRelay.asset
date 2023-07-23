@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: P_OmniRelay
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 031c5a12ec37c2d4da11f56ee5fee422,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: e37af39c578a588468d665eb7084e0e0,
     type: 2}
   udonAssembly: 
   assemblyError: 
