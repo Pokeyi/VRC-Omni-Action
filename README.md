@@ -1,4 +1,4 @@
-# [💾](https://github.com/Pokeyi/VRC-Omni-Action/blob/main/P_OmniAction.cs) VRC-Omni-Action <!-- [![Downloads](https://img.shields.io/github/downloads/Pokeyi/VRC-Omni-Action/total?label=Downloads&logo=github)](https://github.com/Pokeyi/VRC-Omni-Action/releases) -->
+# [💾](https://github.com/Pokeyi/VRC-Omni-Action/blob/main/P_OmniAction.cs) VRC-Omni-Action [![Downloads](https://img.shields.io/github/downloads/Pokeyi/VRC-Omni-Action/total?label=Downloads&logo=github)](https://github.com/Pokeyi/VRC-Omni-Action/releases)
 
 Multi-purpose user-action/event and function-handling component for VRChat.
 
