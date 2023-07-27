@@ -4,6 +4,9 @@ Multi-purpose user-action/event and function-handling component for VRChat.
 
 ![Omni-Action](P_OmniAction.png)
 
+### VRChat Creator Companion App (VCC)
+***This project can now be imported through VCC with the [Pokeyi's Udon Tools](https://github.com/Pokeyi/vpm-packages#vpm-packages) VPM package.***
+
 ## Overview
 VRC Omni-Action is a configurable UdonSharp behaviour that can be used for a growing multitude of VRChat world interactions and game-logic functions.
 
